@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <input id="user" type="text" value=" " />
+    <input id="message" type="text" value=" " />
+    <ul id="messages"></ul>
+
+    <script src="Scripts/jquery-1.6.4.js"></script>
+    <script src="Scripts/jquery.signalR-2.0.2.js"></script>
+    <script src="signalr/hubs" type="text/javascript"></script>
+
+    <script>
+        var hub = $.connection.chat;
+
+        hub.client.showMessage = function (message) {
+            $("#messages").append("<li>" + message + "</li>");
+        };
+
+        $.connection.hub.start();
+
+        $("#message").keypress(function (e) {
+            if (e.which == 13) {
+                hub.server.broadcastMessage($("#user").val() + ": " + $("#message").val());
+                $("#message").val("");
+            }
+        });
+
+
+    </script>
+</body>
+</html>
