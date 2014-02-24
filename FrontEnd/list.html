@@ -1,39 +1,45 @@
-﻿<form name="myForm">
-    <div class="control-group" >
-        <label>Speaker</label>
-        <input type="text" name="speaker" ng-model="talk.speaker" >
+﻿<form role="form">
+    <div class="form-group">
+        <label for="speaker">Speaker</label>
+        <input type="text" class="form-control" id="speaker" placeholder="Enter speaker name" ng-model="talk.speaker">
     </div>
 
-    <div class="control-group">
-        <label>Title</label>
-        <input type="text" name="title" ng-model="talk.speaker" >
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Enter title" ng-model="talk.title">
     </div>
 
-    <label>Description</label>
-    <textarea name="description" ng-model="talk.abstract"></textarea>
+    <div class="form-group">
+        <label for="title">Description</label>
+        <input type="text" class="form-control" id="abstract" placeholder="Enter abstract" ng-model="talk.abstract">
+    </div>
 
     <br>
-    <a href="#/" class="btn">Cancel</a>
-    <button ng-click="save()">Save</button>
+
+    <button class="btn btn-success" ng-click="save()">Save</button>
     <!--<button ng-click="destroy()"
         ng-show="project.$remove" class="btn btn-danger">
         Delete</button>-->
 </form>
 
-<table>
-  <thead>
-  <tr>
-    <th>Speaker</th>
-    <th>Title</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr ng-repeat="talk in talks"> 
-    <td>{{talk.speaker}}</td>
-    <td>{{talk.title}}</td>
-    <td>
-      <a href="#/approve/{{project.$id}}">approve</a>
-    </td>
-  </tr>
-  </tbody>
+
+    
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Speaker</th>
+            <th>Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="talk in talks">
+            <td>{{talk.speaker}}</td>
+            <td>{{talk.title}}</td>
+            <td>
+                <a href="#/approve/{{talk._id}}">approve</a>
+            </td>
+        </tr>
+    </tbody>
 </table>

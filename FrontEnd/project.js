@@ -18,10 +18,19 @@
 })
 
 .controller('ListCtrl', function ($scope, $http) {
+    $scope.talk = { speaker: '', title: '', abstract: '' };
+
     $http.get("talks")
-        .success(function(data) {
+        .success(function (data) {
             $scope.talks = data;
-    });
+        });
+
+    $scope.save = function () {
+        $http.post("talks", $scope.talk)
+            .success(function (data) {
+                $scope.talk = { speaker: '', title: '', abstract: '' };
+            });
+    };
 })
 
 .controller('CreateCtrl', function ($scope, $location, $timeout) {

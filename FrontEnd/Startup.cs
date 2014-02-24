@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using MassTransit;
+using Microsoft.Owin;
 using Owin;
 using System;
 
@@ -12,6 +13,18 @@ namespace FrontEnd
         {
             app.MapSignalR();
             app.UseNancy();
+
+            SetupServiceBus();
+        }
+
+        private void SetupServiceBus()
+        {
+            Bus.Initialize(c =>
+                {
+                    c.ReceiveFrom("rabbitmq://localhost/cdays14/frontend");
+                    c.UseRabbitMqRouting();
+                    c.UseJsonSerializer();
+                });
         }
     }
 }

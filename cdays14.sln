@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{D1095257-5E83-4B33-A2B5-655D7E00EA97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackEnd", "BackEnd\BackEnd.csproj", "{B56CFC92-1976-454D-B841-876B6D70A1F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{631B3503-9E7A-4557-AF93-14E5940C3775}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{D1095257-5E83-4B33-A2B5-655D7E00EA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1095257-5E83-4B33-A2B5-655D7E00EA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1095257-5E83-4B33-A2B5-655D7E00EA97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B56CFC92-1976-454D-B841-876B6D70A1F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B56CFC92-1976-454D-B841-876B6D70A1F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B56CFC92-1976-454D-B841-876B6D70A1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B56CFC92-1976-454D-B841-876B6D70A1F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631B3503-9E7A-4557-AF93-14E5940C3775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631B3503-9E7A-4557-AF93-14E5940C3775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631B3503-9E7A-4557-AF93-14E5940C3775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631B3503-9E7A-4557-AF93-14E5940C3775}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
