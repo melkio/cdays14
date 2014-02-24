@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CreateTalkCommand.cs" />
-    <Compile Include="DenormalizationInfo.cs" />
+    <Compile Include="ItemDenormalized.cs" />
     <Compile Include="DomainEvents\DomainEvent.cs" />
     <Compile Include="DomainEvents\TalkApproved.cs" />
     <Compile Include="DomainEvents\TalkProposed.cs" />

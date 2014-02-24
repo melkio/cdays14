@@ -34,6 +34,8 @@ namespace BackEnd.Consumers
                 );
             var collection = _storage.GetCollection("talks");
             collection.Insert(document);
+
+            context.Bus.Publish(new ItemDenormalized { AggregateId = message.Id, DenormalizerName = "TalkDenormalizer", When = DateTime.Now });
         }
 
         public void Consume(IConsumeContext<TalkApproved> context)
@@ -42,6 +44,8 @@ namespace BackEnd.Consumers
 
             var collection = _storage.GetCollection("talks");
             collection.Update(Query.EQ("_id", message.Id), Update.Set("approved", true));
+
+            context.Bus.Publish(new ItemDenormalized { AggregateId = message.Id, DenormalizerName = "TalkDenormalizer", When = DateTime.Now });
         }
     }
 }

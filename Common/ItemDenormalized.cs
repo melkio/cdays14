@@ -2,7 +2,7 @@
 
 namespace Common
 {
-    public class DenormalizationInfo
+    public class ItemDenormalized
     {
         public String DenormalizerName { get; set; }
         public String AggregateId { get; set; }

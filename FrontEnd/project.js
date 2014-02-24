@@ -1,10 +1,22 @@
 ﻿angular.module('project', [])
 
-//.value('fbURL', 'https://angularjs-projects.firebaseio.com/')
+.value('$', $)
 
-//.factory('Projects', function ($firebase, fbURL) {
-//    return $firebase(new Firebase(fbURL));
-//})
+.service('signalR', function ($, $rootScope) {
+    var initialize = function () {
+        var hub = $.connection.denormalizer;
+
+        hub.client.notify = function (message) {
+            $rootScope.$emit("denormalized", message);
+        };
+
+        $.connection.hub.start();
+    };
+
+    return {
+        initialize: initialize
+    };
+})
 
 .config(function ($routeProvider) {
     $routeProvider
@@ -17,13 +29,15 @@
       });
 })
 
-.controller('ListCtrl', function ($scope, $http) {
+.controller('ListCtrl', function ($scope, $http, signalR) {
     $scope.talk = { speaker: '', title: '', abstract: '' };
 
-    $http.get("talks")
-        .success(function (data) {
-            $scope.talks = data;
+    var readData = function () {
+        $http.get("talks")
+            .success(function (data) {
+                $scope.talks = data;
         });
+    };
 
     $scope.save = function () {
         $http.post("talks", $scope.talk)
@@ -31,27 +45,13 @@
                 $scope.talk = { speaker: '', title: '', abstract: '' };
             });
     };
-})
 
-.controller('CreateCtrl', function ($scope, $location, $timeout) {
-    //$scope.save = function () {
-    //    Projects.$add($scope.project, function () {
-    //        $timeout(function () { $location.path('/'); });
-    //    });
-    //};
-})
+    signalR.initialize();
+    readData();
 
-.controller('EditCtrl', function ($scope, $location, $routeParams) {
-      //var projectUrl = fbURL + $routeParams.projectId;
-      //$scope.project = $firebase(new Firebase(projectUrl));
-
-      //$scope.destroy = function () {
-      //    $scope.project.$remove();
-      //    $location.path('/');
-      //};
-
-      //$scope.save = function () {
-      //    $scope.project.$save();
-      //    $location.path('/');
-      //};
-  });
+    $scope.$parent.$on('denormalized', function (e, message) {
+        $scope.$apply(function () {
+            readData();
+        })
+    });
+});

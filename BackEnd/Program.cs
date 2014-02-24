@@ -18,6 +18,7 @@ namespace BackEnd
                     {
                         x.Consumer<CreateTalkCommandHandler>();
                         x.Consumer<TalkDenormalizer>();
+                        x.Consumer<DenormalizerBroadcasterConsumer>();
                     });
             });
 
