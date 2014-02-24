@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.Intro", "SignalR.Intro\SignalR.Intro.csproj", "{FC82212C-86BE-447E-BDAC-E20E7EFADA5C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01", "01", "{8A6A3E30-8F0E-46ED-8BBF-43FF18213631}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,8 +16,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{FC82212C-86BE-447E-BDAC-E20E7EFADA5C} = {8A6A3E30-8F0E-46ED-8BBF-43FF18213631}
 	EndGlobalSection
 EndGlobal
