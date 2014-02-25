@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using Microsoft.AspNet.SignalR;
+using Microsoft.Owin;
 using Owin;
 using System;
 
@@ -10,6 +11,7 @@ namespace SignalR.Intro
     {
         public void Configuration(IAppBuilder app)
         {
+            GlobalHost.DependencyResolver.UseRedis("localhost", 6379, "", "cdays14"); 
             app.MapSignalR();
         }
     }
